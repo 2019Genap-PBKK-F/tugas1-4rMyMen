@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="app" ref="spreadsheet"></div>
-    <div><input type="button" value="Add new row" @click="() => spreadsheet.insertRow()" /></div>
+    <h2>DATA MAHASISWA</h2>
   </div>
 </template>
 
@@ -9,20 +9,26 @@
 import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 var data = [
-  ['Jazz', 'Honda', '2019-02-12', '', true, '$ 2.000,00', '#777700'],
-  ['Civic', 'Honda', '2018-07-11', '', true, '$ 4.000,01', '#007777']
+  ['05111740000019', 'Honda', '2017', '11/01/2019', '', true]
+  ['05111740000029', 'Honda1', '2017', '12/02/2019', '', true]
+  ['05111740000039', 'Honda2', '2017', '13/03/2019', '', true]
+  ['05111740000049', 'Honda3', '2017', '14/04/2019', '', true]
+  ['05111740000059', 'Honda4', '2017', '15/05/2019', '', true]
+  ['05111740000069', 'Honda5', '2017', '16/06/2019', '', true]
+  ['05111740000079', 'Honda6', '2017', '17/07/2019', '', true]
+  ['05111740000089', 'Honda7', '2017', '18/08/2019', '', true]
+  ['05111740000099', 'Honda8', '2017', '19/09/2019', '', true]
 ]
 var options = {
   data: data,
   allowToolbar: true,
   columns: [
-    { type: 'text', title: 'Car', width: '120px' },
-    { type: 'dropdown', title: 'Make', width: '250px', source: [ 'Alfa Romeo', 'Audi', 'Bmw' ] },
-    { type: 'calendar', title: 'Available', width: '250px' },
-    { type: 'image', title: 'Photo', width: '120px' },
-    { type: 'checkbox', title: 'Stock', width: '80px' },
-    { type: 'numeric', title: 'Price', width: '100px', mask: '$ #.##,00', decimal: ',' },
-    { type: 'color', width: '100px', render: 'square' }
+    { type: 'numeric', title: 'NRP', width: '200px' },
+    { type: 'text', title: 'Nama', width: '200px' },
+    { type: 'numeric', title: 'Angkatan', width: '200px' },
+    { type: 'calender', title: 'Tgl Lahir', width: '200px' },
+    { type: 'image', title: 'Photo', width: '200px' },
+    { type: 'checkbox', title: 'Aktif', width: '80px' }
   ]
 }
 export default {
