@@ -13,14 +13,45 @@
         <span class="page">Tables</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/excel">
-      <a>
-        <i class="fa fa-excel"></i>
-        <span class="page">Excel</span>
-      </a>
-    </router-link>    
 
     <li class="header">ME</li>
+    <router-link tag="li" class="pageLink" to="/jexcel">
+      <a>
+        <i class="fa fa-file-excel-o"></i>
+        <span class="page">JExcel</span>
+      </a>
+    </router-link>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-folder-o"></i>
+        <span class="treeview-title">Tugas</span>
+        <span class="pull-right-container pull-right">
+          <i class="fa fa-angle-left fa-fw"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a href="/datadasar">
+            <i class="fa fa-address-book-o"></i> Data Dasar
+          </a>
+        </li>
+        <li>
+          <a href="/capaianunit">
+            <i class="fa fa-address-book-o"></i> Capaian Unit
+          </a>
+        </li>
+        <li>
+          <a href="/unit">
+            <i class="fa fa-address-book-o"></i> Unit
+          </a>
+        </li>
+        <li>
+          <a href="/kategoriunit">
+            <i class="fa fa-address-book-o"></i> Kategori Unit
+          </a>
+        </li>
+      </ul>
+    </li>
     <router-link tag="li" class="pageLink" to="/tasks">
       <a>
         <i class="fa fa-tasks"></i>
@@ -106,23 +137,19 @@ export default {
 .sidebar-menu > li > a {
   padding: 12px 15px 12px 15px;
 }
-
 .sidebar-menu li.active > a > .fa-angle-left,
 .sidebar-menu li.active > a > .pull-right-container > .fa-angle-left {
   animation-name: rotate;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
 }
-
 .treeview-title {
   z-index: 1;
 }
-
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(-90deg);
   }
