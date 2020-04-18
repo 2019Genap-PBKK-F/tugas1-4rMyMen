@@ -12,21 +12,20 @@
 import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
-// var host = 'http://10.199.14.46:8013/api/capaian-unit/'
-var host = 'http://localhost:8013/api/capaian-unit/'
-// var dropdownDataDasar = 'http://10.199.14.46:8013/api/data-dasar/nama/'
-// var dropdownUnit = 'http://10.199.14.46:8013/api/nama-unit/'
+// var host = 'http://10.199.14.46:8013/'
+var host = 'http://localhost:8013/'
 var dropdownDataDasar = 'http://localhost:8013/api/data-dasar/nama/'
-var dropdownSatuanKerja = 'http://localhost:8013/api/satuan-kerja/nama/'
 export default {
   // name: 'App',
   data() {
     return {
-      capaianUnit: [],
+      masterIndikator: [],
       form: {
-        id_satker: 'aff',
-        id_datadasar: 1,
-        capaian: 0.0
+        id_pembilang: 1,
+        id_penyebut: 1,
+        nama: 'New Data',
+        deskripsi: 'New Data',
+        default_bobot: 0.0
       }
     }
   },
@@ -35,21 +34,25 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host).then(res => {
+      axios.get(host + 'api/master-indikator/').then(res => {
         console.log(res.data)
         var jexcelOptions = {
           data: res.data,
           allowToolbar: true,
           onchange: this.updateRow,
-          // onbeforechange: this.oldRow,
           oninsertrow: this.newRow,
           ondeleterow: this.deleteRow,
           responsive: true,
           columns: [
-            { type: 'dropdown', title: 'Satuan Kerja', url: dropdownSatuanKerja, width: '120px' },
-            { type: 'dropdown', title: 'Data Dasar', url: dropdownDataDasar, width: '120px' },
-            { type: 'text', title: 'Waktu', width: '200px', readOnly: true },
-            { type: 'text', title: 'Capaian', width: '120px' }
+            { type: 'hidden', title: 'id', width: '10px' },
+            { type: 'dropdown', title: 'Pembilang', url: dropdownDataDasar, width: '120px' },
+            { type: 'dropdown', title: 'Penyebut', url: dropdownDataDasar, width: '120px' },
+            { type: 'text', title: 'Nama', width: '120px' },
+            { type: 'text', title: 'Deskripsi', width: '120px' },
+            { type: 'text', title: 'Default Bobot', width: '120px' },
+            { type: 'text', title: 'Create Date', width: '160px', readOnly: true },
+            { type: 'text', title: 'Last Update', width: '160px', readOnly: true },
+            { type: 'text', title: 'Expired Date', width: '160px' }
           ]
         }
         let spreadsheet = jexcel(this.$el, jexcelOptions)
@@ -57,37 +60,34 @@ export default {
       })
     },
     newRow() {
-      axios.post(host, this.form).then(res => {
+      axios.post(host + 'api/master-indikator/', this.form).then(res => {
         console.log(res.data)
       })
     },
     updateRow(instance, cell, columns, row, value) {
-      axios.get(host).then(res => {
+      axios.get(host + 'api/master-indikator/').then(res => {
         var index = Object.values(res.data[row])
-        var old = Object.values(res.data[row])
         index[columns] = value
-        console.log(old[0] + ' ' + old[1])
-        console.log(index[0] + ' ' + index[1])
-        axios.put(host + old[0] + '&' + old[1], {
-          DataDasar_id: index[0],
-          Unit_id: index[1],
-          waktu: index[2],
-          capaian: index[3]
+        console.log(index)
+        axios.put(host + 'api/master-indikator/' + index[0], {
+          id: index[0],
+          id_pembilang: index[1],
+          id_penyebut: index[2],
+          nama: index[3],
+          deskripsi: index[4],
+          default_bobot: index[5]
         }).then(res => {
           console.log(res.data)
         })
       })
     },
     deleteRow(instance, row) {
-      axios.get(host).then(res => {
+      axios.get(host + 'api/master-indikator/').then(res => {
         var index = Object.values(res.data[row])
         // console.log(index)
         console.log(row)
-        axios.delete(host + index[0] + '&' + index[1])
+        axios.delete(host + 'api/master-indikator/' + index[0])
       })
-    },
-    oldRow(instance, cell, columns, row, value) {
-      console.log('lama ' + value)
     }
   }
 }

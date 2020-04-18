@@ -40,7 +40,10 @@ export default {
           responsive: true,
           columns: [
             { type: 'hidden', title: 'id', width: '10px' },
-            { type: 'text', title: 'Nama', width: '200px' }
+            { type: 'text', title: 'Nama', width: '120px' },
+            { type: 'text', title: 'Create Date', width: '200px', readOnly: true },
+            { type: 'text', title: 'Last Update', width: '200px', readOnly: true },
+            { type: 'text', title: 'Expired Date', width: '200px' }
           ]
         }
         let spreadsheet = jexcel(this.$el, jexcelOptions)
@@ -59,7 +62,10 @@ export default {
         console.log(index)
         axios.put(host + 'api/data-dasar/' + index[0], {
           id: index[0],
-          nama: index[1]
+          nama: index[1],
+          create_date: index[2],
+          last_update: index[3],
+          expired_date: index[4]
         }).then(res => {
           console.log(res.data)
         })
