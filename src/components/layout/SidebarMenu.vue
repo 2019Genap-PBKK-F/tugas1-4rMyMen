@@ -7,76 +7,104 @@
         <span class="page">Dashboard</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/tables">
+    <router-link tag="li" class="pageLink" to="/excel">
       <a>
-        <i class="fa fa-table"></i>
-        <span class="page">Tables</span>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Excel</span>
+      </a>
+    </router-link>
+        <router-link tag="li" class="pageLink" to="/publikasi">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">publikasi</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/abmas">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">abmas</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/dosen">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">dosen</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/penelitian">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">penelitian</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/DataDasar">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">DataDasar</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/JenisSatker">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">JenisSatker</span>
+      </a>
+    </router-link>
+	<router-link tag="li" class="pageLink" to="/Aspek">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Aspek</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/MasterIndikator">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">MasterIndikator</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/Periode">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Periode</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/MasterIndikatorFull">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">MasterIndikatorFull</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/IndikatorPeriode">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Indikator_Periode</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/SatuanKerja">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">SatuanKerja</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/CapaianUnit">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Capaian_Unit</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/Indikator_SatuanKerja">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Indikator_SatuanKerja</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/Indikator_SatuanKerja_Log">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Indikator_SatuanKerja_Log</span>
       </a>
     </router-link>
 
     <li class="header">ME</li>
-    <router-link tag="li" class="pageLink" to="/jexcel">
-      <a>
-        <i class="fa fa-file-excel-o"></i>
-        <span class="page">JExcel</span>
-      </a>
-    </router-link>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-folder-o"></i>
-        <span class="treeview-title">Tugas</span>
-        <span class="pull-right-container pull-right">
-          <i class="fa fa-angle-left fa-fw"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li>
-          <a href="/datadasar">
-            <i class="fa fa-address-book-o"></i> Data Dasar
-          </a>
-        </li>
-        <li>
-          <a href="/jenissatker">
-            <i class="fa fa-address-book-o"></i> Jenis Satker
-          </a>
-        </li>
-        <li>
-          <a href="/periode">
-            <i class="fa fa-address-book-o"></i> Periode
-          </a>
-        </li>
-        <li>
-          <a href="/masterindikator">
-            <i class="fa fa-address-book-o"></i> Master Indikator
-          </a>
-        </li>
-        <li>
-          <a href="/indikatorperiode">
-            <i class="fa fa-address-book-o"></i> Indikator Periode
-          </a>
-        </li>
-        <li>
-          <a href="/satuankerja">
-            <i class="fa fa-address-book-o"></i> Satuan Kerja
-          </a>
-        </li>
-        <li>
-          <a href="/capaianunit">
-            <i class="fa fa-address-book-o"></i> Capaian Unit
-          </a>
-        </li>
-        <li>
-          <a href="/indikatorsatker">
-            <i class="fa fa-address-book-o"></i> Indikator Satker
-          </a>
-        </li>
-        <li>
-          <a href="/indikatorsatkerlog">
-            <i class="fa fa-address-book-o"></i> Indikator Satker Log
-          </a>
-        </li>
-      </ul>
-    </li>
     <router-link tag="li" class="pageLink" to="/tasks">
       <a>
         <i class="fa fa-tasks"></i>

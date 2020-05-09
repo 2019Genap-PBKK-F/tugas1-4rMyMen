@@ -2,8 +2,8 @@
   <div>
     <div id="app" ref="spreadsheet"></div>
     <div>
-        <input class="btn btn-primary tambah" type="button" value="Add New Row" @click="() => spreadsheet.insertRow()" />
-        <input class="btn btn-primary tambah" type="button" value="Delete Selected Row" @click="() => spreadsheet.deleteRow()" />
+        <input type="button" value="Add New Row" @click="() => spreadsheet.insertRow()" />
+        <input type="button" value="Delete Selected Row" @click="() => spreadsheet.deleteRow()" />
     </div>
   </div>
 </template>
@@ -79,10 +79,3 @@ export default {
   }
 }
 </script>
-<style>
-  .tambah {
-    margin-top: 10pt;
-    margin-bottom: 10pt;
-    margin-left: 10pt;
-    }
-</style>

@@ -2,8 +2,8 @@
   <div>
     <div id="app" ref="spreadsheet"></div>
     <div>
-        <input class="btn btn-primary tambah" type="button" value="Add New Row" @click="() => spreadsheet.insertRow()" />
-        <input class="btn btn-primary tambah" type="button" value="Delete Selected Row" @click="() => spreadsheet.deleteRow()" />
+        <input type="button" value="Add New Row" @click="() => spreadsheet.insertRow()" />
+        <input type="button" value="Delete Selected Row" @click="() => spreadsheet.deleteRow()" />
     </div>
   </div>
 </template>
@@ -14,21 +14,13 @@ import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 // var host = 'http://10.199.14.46:8013/'
 var host = 'http://localhost:8013/'
-var dropdownSatuanKerja = 'http://localhost:8013/api/satuan-kerja/nama/'
-var dropdownMasterIndikator = 'http://localhost:8013/api/master-indikator/nama/'
-var dropdownPeriode = 'http://localhost:8013/api/periode/nama/'
 export default {
   // name: 'App',
   data() {
     return {
-      masterIndikator: [],
+      dataDasar: [],
       form: {
-        id_periode: 2020,
-        id_master: 1,
-        id_satker: 'aff',
-        bobot: 0.0,
-        target: 0.0,
-        capaian: 0.0
+        nama: 'New Data'
       }
     }
   },
@@ -37,7 +29,7 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/indikator-satuan-kerja/').then(res => {
+      axios.get(host + 'api/Indikator_SatuanKerja/').then(res => {
         console.log(res.data)
         var jexcelOptions = {
           data: res.data,
@@ -47,13 +39,13 @@ export default {
           ondeleterow: this.deleteRow,
           responsive: true,
           columns: [
-            { type: 'dropdown', title: 'Periode', url: dropdownPeriode, width: '120px' },
-            { type: 'dropdown', title: 'Master Indikator', url: dropdownMasterIndikator, width: '120px' },
-            { type: 'dropdown', title: 'Satker', url: dropdownSatuanKerja, width: '120px' },
-            { type: 'text', title: 'Bobot', width: '120px' },
-            { type: 'text', title: 'Target', width: '120px' },
-            { type: 'text', title: 'Capaian', width: '120px' },
-            { type: 'text', title: 'Last Update', width: '120px', readOnly: true }
+            { type: 'hidden', title: 'id', width: '10px' },
+            { type: 'text', title: 'id_indikator_periode', width: '120px' },
+            { type: 'text', title: 'id_satker', width: '120px' },
+            { type: 'text', title: 'bobot', width: '120px' },
+            { type: 'text', title: 'target', width: '120px' },
+            { type: 'text', title: 'capaian', width: '120px' },
+            { type: 'text', title: 'last_update', width: '120px' }
           ]
         }
         let spreadsheet = jexcel(this.$el, jexcelOptions)
@@ -61,18 +53,18 @@ export default {
       })
     },
     newRow() {
-      axios.post(host + 'api/indikator-satuan-kerja/', this.form).then(res => {
+      axios.post(host + 'api/Indikator_SatuanKerja/', this.form).then(res => {
         console.log(res.data)
       })
     },
     updateRow(instance, cell, columns, row, value) {
-      axios.get(host + 'api/indikator-satuan-kerja/').then(res => {
+      axios.get(host + 'api/Indikator_SatuanKerja/').then(res => {
         var index = Object.values(res.data[row])
         index[columns] = value
         console.log(index)
-        axios.put(host + 'api/indikator-satuan-kerja/' + index[0] + '&' + index[1] + '&' + index[2], {
-          id_periode: index[0],
-          id_master: index[1],
+        axios.put(host + 'api/Indikator_SatuanKerja/' + index[0], {
+          id: index[0],
+          id_indikator_periode: index[1],
           id_satker: index[2],
           bobot: index[3],
           target: index[4],
@@ -83,20 +75,13 @@ export default {
       })
     },
     deleteRow(instance, row) {
-      axios.get(host + 'api/indikator-satuan-kerja/').then(res => {
+      axios.get(host + 'api/Indikator_SatuanKerja/').then(res => {
         var index = Object.values(res.data[row])
         // console.log(index)
         console.log(row)
-        axios.delete(host + 'api/indikator-satuan-kerja/' + index[0] + '&' + index[1] + '&' + index[2])
+        axios.delete(host + 'api/Indikator_SatuanKerja/' + index[0])
       })
     }
   }
 }
 </script>
-<style>
-  .tambah {
-    margin-top: 10pt;
-    margin-bottom: 10pt;
-    margin-left: 10pt;
-    }
-</style>

@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/Indikator_Periode/').then(res => {
+      axios.get(host + 'api/Aspek/').then(res => {
         console.log(res.data)
         var jexcelOptions = {
           data: res.data,
@@ -40,9 +40,8 @@ export default {
           responsive: true,
           columns: [
             { type: 'hidden', title: 'id', width: '10px' },
-            { type: 'text', title: 'id_master', width: '120px' },
-            { type: 'text', title: 'id_periode', width: '120px' },
-            { type: 'text', title: 'bobot', width: '120px' }
+            { type: 'text', title: 'aspek', width: '120px' },
+            { type: 'text', title: 'komponen_aspek', width: '120px' }
           ]
         }
         let spreadsheet = jexcel(this.$el, jexcelOptions)
@@ -50,31 +49,30 @@ export default {
       })
     },
     newRow() {
-      axios.post(host + 'api/Indikator_Periode/', this.form).then(res => {
+      axios.post(host + 'api/Aspek/', this.form).then(res => {
         console.log(res.data)
       })
     },
     updateRow(instance, cell, columns, row, value) {
-      axios.get(host + 'api/Indikator_Periode/').then(res => {
+      axios.get(host + 'api/Aspek/').then(res => {
         var index = Object.values(res.data[row])
         index[columns] = value
         console.log(index)
-        axios.put(host + 'api/Indikator_Periode/' + index[0], {
+        axios.put(host + 'api/Aspek/' + index[0], {
           id: index[0],
-          id_master: index[1],
-          id_periode: index[2],
-          bobot: index[3]
+          aspek: index[1],
+          komponen_aspek: index[2]
         }).then(res => {
           console.log(res.data)
         })
       })
     },
     deleteRow(instance, row) {
-      axios.get(host + 'api/Indikator_Periode/').then(res => {
+      axios.get(host + 'api/Aspek/').then(res => {
         var index = Object.values(res.data[row])
         // console.log(index)
         console.log(row)
-        axios.delete(host + 'api/Indikator_Periode/' + index[0])
+        axios.delete(host + 'api/Aspek/' + index[0])
       })
     }
   }
