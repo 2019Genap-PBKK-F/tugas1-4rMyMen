@@ -54,15 +54,15 @@ router.beforeEach((to, from, next) => {
 sync(store, router)
 
 // Check local storage to handle refreshes
-if (window.localStorage) {
-  var localUserString = window.localStorage.getItem('user') || 'null'
-  var localUser = JSON.parse(localUserString)
+// if (window.localStorage) {
+//   var localUserString = window.localStorage.getItem('user') || 'null'
+//   var localUser = JSON.parse(localUserString)
 
-  if (localUser && store.state.user !== localUser) {
-    store.commit('SET_USER', localUser)
-    store.commit('SET_TOKEN', window.localStorage.getItem('token'))
-  }
-}
+//   if (localUser && store.state.user !== localUser) {
+//     store.commit('SET_USER', localUser)
+//     store.commit('SET_TOKEN', window.localStorage.getItem('token'))
+//   }
+// }
 
 // Start out app!
 // eslint-disable-next-line no-new

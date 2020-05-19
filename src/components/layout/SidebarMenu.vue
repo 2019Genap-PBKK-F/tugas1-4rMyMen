@@ -91,6 +91,12 @@
         <span class="page">Capaian_Unit</span>
       </a>
     </router-link>
+    <router-link tag="li" class="pageLink" to="/Kokin">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Kokin</span>
+      </a>
+    </router-link>
     <router-link tag="li" class="pageLink" to="/Indikator_SatuanKerja">
       <a>
         <i class="fa fa-desktop"></i>

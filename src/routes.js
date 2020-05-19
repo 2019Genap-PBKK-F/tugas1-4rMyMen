@@ -22,6 +22,7 @@ import IndikatorPeriodeView from './components/views/IndikatorPeriode.vue'
 import SatuanKerjaView from './components/views/SatuanKerja.vue'
 import CapaianUnitView from './components/views/CapaianUnit.vue'
 import IndikatorSatuanKerjaView from './components/views/IndikatorSatuanKerja.vue'
+import KokinView from './components/views/Kokin.vue'
 import IndikatorSatuanKerjaLogView from './components/views/IndikatorSatuanKerjaLog.vue'
 import MasterIndikatorFullView from './components/views/MasterIndikatorFull.vue'
 
@@ -120,6 +121,11 @@ const routes = [
         component: IndikatorSatuanKerjaView,
         name: 'Indikator_SatuanKerja',
         meta: {description: 'IndikatorSatuanKerja in CoPilot'}
+      }, {
+        path: 'Kokin',
+        component: KokinView,
+        name: 'Kokin',
+        meta: {description: 'Kokin in CoPilot'}
       }, {
         path: 'IndikatorSatuanKerjaLog',
         component: IndikatorSatuanKerjaLogView,
