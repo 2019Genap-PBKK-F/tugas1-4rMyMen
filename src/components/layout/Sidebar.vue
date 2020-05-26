@@ -11,7 +11,7 @@
         </div>
         <div class="pull-left info">
           <div>
-            <p class="white">{{user.displayName}}</p>
+            <p class="white">{{username}}</p>
           </div>
           <a href="javascript:;">
             <i class="fa fa-circle text-success"></i> Online
@@ -51,6 +51,11 @@ import SidebarMenu from './SidebarMenu'
 export default {
   name: 'Sidebar',
   props: ['user'],
+  data: function () {
+    return {
+      username: window.localStorage.getItem('user').substring(0, 25)
+    }
+  },
   components: { SidebarMenu },
   mounted: function() {
     window

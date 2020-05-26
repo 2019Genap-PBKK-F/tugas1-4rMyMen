@@ -33,11 +33,10 @@ import penelitianView from './components/views/penelitian.vue'
 // Routes
 const routes = [
   {
-    path: '/login',
-    component: LoginView
-  },
-  {
     path: '/',
+    component: LoginView
+  }, {
+    path: '/user',
     component: DashView,
     children: [
       {

@@ -7,103 +7,97 @@
         <span class="page">Dashboard</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/excel">
-      <a>
-        <i class="fa fa-desktop"></i>
-        <span class="page">Excel</span>
-      </a>
-    </router-link>
-        <router-link tag="li" class="pageLink" to="/publikasi">
+    <router-link tag="li" class="pageLink" to="/user/publikasi">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">publikasi</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/abmas">
+    <router-link tag="li" class="pageLink" to="/user/abmas">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">abmas</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/dosen">
+    <router-link tag="li" class="pageLink" to="/user/dosen">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">dosen</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/penelitian">
+    <router-link tag="li" class="pageLink" to="/user/penelitian">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">penelitian</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/DataDasar">
+    <router-link tag="li" class="pageLink" to="/user/DataDasar">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">DataDasar</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/JenisSatker">
+    <router-link tag="li" class="pageLink" to="/user/JenisSatker">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">JenisSatker</span>
       </a>
     </router-link>
-	<router-link tag="li" class="pageLink" to="/Aspek">
+	  <router-link tag="li" class="pageLink" to="/user/Aspek">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Aspek</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/MasterIndikator">
+    <router-link tag="li" class="pageLink" to="/user/MasterIndikator">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">MasterIndikator</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/Periode">
+    <router-link tag="li" class="pageLink" to="/user/Periode">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Periode</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/MasterIndikatorFull">
+    <router-link tag="li" class="pageLink" to="/user/MasterIndikatorFull">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">MasterIndikatorFull</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/IndikatorPeriode">
+    <router-link tag="li" class="pageLink" to="/user/IndikatorPeriode">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Indikator_Periode</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/SatuanKerja">
+    <router-link tag="li" class="pageLink" to="/user/SatuanKerja">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">SatuanKerja</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/CapaianUnit">
+    <router-link tag="li" class="pageLink" to="/user/CapaianUnit">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Capaian_Unit</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/Kokin">
+    <router-link tag="li" class="pageLink" to="/user/Kokin">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Kokin</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/Indikator_SatuanKerja">
+    <router-link tag="li" class="pageLink" to="/user/Indikator_SatuanKerja">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Indikator_SatuanKerja</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/Indikator_SatuanKerja_Log">
+    <router-link tag="li" class="pageLink" to="/user/Indikator_SatuanKerja_Log">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Indikator_SatuanKerja_Log</span>
@@ -168,20 +162,6 @@
         <i class="fa fa-heart"></i>
         <span class="page">Repos</span>
         <small class="label pull-right bg-green">AJAX</small>
-      </a>
-    </router-link>
-
-    <li class="header">PAGES</li>
-    <router-link tag="li" class="pageLink" to="/login">
-      <a>
-        <i class="fa fa-circle-o text-yellow"></i>
-        <span class="page"> Login</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/404">
-      <a>
-        <i class="fa fa-circle-o text-red"></i>
-        <span class="page"> 404</span>
       </a>
     </router-link>
   </ul>

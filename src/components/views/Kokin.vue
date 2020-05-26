@@ -2,14 +2,14 @@
   <div>
     <div>
         <select v-model="selected" class='form-control' @change="onChange($event)">
-          <option v-for="data in fkSatker"  v-bind:value="data.id">
+          <option  v-for="data in fkSatker"  v-bind:value="{ id: data.id, nama: data.nama }">
             {{ data.nama }}
           </option>
         </select>
     </div>
     <div><img src="https://www.its.ac.id/wp-content/uploads/2019/02/Badge_ITS.png" alt="its logo" width="100" height="100"></div>
     <div>KONTRAK KINERJA TAHUN 2020</div>
-    <div>Kepala Departemen {{ selected }}</div> 
+    <div>Kepala Departemen {{ selected.nama }}</div>	
     <div id="spreadsheet" ref="spreadsheet"></div>
   </div>
 </template>
@@ -25,7 +25,9 @@ export default {
   // name: 'App',
   data() {
     return {
-      selected: '',
+      namauser: window.localStorage.getItem('user'),
+      iduser: window.localStorage.getItem('token'),
+      selected: 'all you can see',
       dataIndikator: [],
       filterSatker: [],
       fkSatker: [],
@@ -40,11 +42,26 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/satuan-kerja/nama').then(res => {
-        console.log(res.data)
-        this.fkSatker = Object.values(res.data)
-      })
-      axios.get(host + 'api/konkin/').then(res => {
+      if (this.namauser.startsWith('Dep')
+      ) {
+        console.log('yes')
+        axios.get(host + 'api/SatuanKerja/' + this.iduser).then(res => {
+          console.log(res.data)
+          this.fkSatker = Object.values(res.data)
+        })
+      } else {
+        console.log('no')
+        axios.get(host + 'api/SatuanKerja/nama/' + this.iduser).then(res => {
+          this.fkSatker = Object.values(res.data)
+        })
+      }
+      axios.get(host + 'api/konkin/special/' + this.iduser).then(res => {
+        var i
+        console.log(res.data.length)
+        for (i = 0; i < res.data.length; i++) {
+          res.data[i].cap = Math.random()
+          res.data[i].cap = res.data[i].cap + '(' + res.data[i].cap / res.data[i].target * 100 + '%)'
+        }
         console.log(res.data)
         var jexcelOptions = {
           data: res.data,
@@ -69,10 +86,15 @@ export default {
       })
     },
     onChange(event) {
-      console.log(event.target.value)
+      console.log(this.selected.nama)
       document.getElementById('spreadsheet').innerHTML = ''
-      axios.get(host + 'api/konkin/' + event.target.value).then(res => {
-        console.log(res.data)
+      axios.get(host + 'api/konkin/' + this.selected.id).then(res => {
+        var i
+        console.log(res.data.length)
+        for (i = 0; i < res.data.length; i++) {
+          res.data[i].cap = Math.random()
+          res.data[i].cap = res.data[i].cap + '(' + res.data[i].cap / res.data[i].target * 100 + '%)'
+        }
         var jexcelOptions = {
           data: res.data,
           allowToolbar: true,

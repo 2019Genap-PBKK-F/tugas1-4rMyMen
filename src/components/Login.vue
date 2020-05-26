@@ -47,43 +47,33 @@ export default {
 
       /* Making API call to authenticate a user */
       api
-        .request('get', 'http://localhost:8013/auth/login/' + email, {auth: { email, password }})
+        .request('post', '/login', { email, password })
         .then(response => {
           this.toggleLoading()
-
-          var data = response.data[0]
-          /* Checking if error object was returned from the server */
-          if (data.error) {
-            console(data.error)
-            var errorName = data.error.name
-            if (errorName) {
-              this.response =
-                errorName === 'InvalidCredentialsError'
-                  ? 'email/Password incorrect. Please try again.'
-                  : errorName
-            } else {
-              this.response = data.error
-            }
-
+          var data = response.data
+          console.log(data)
+          if (data.length === 0) {
+            this.response = 'Invalid Email / Password, Please try again'
             return
           }
 
           /* Setting user in the state and caching record to the localStorage */
-          if (data.nama) {
-            var token = 'Bearer ' + data.token
-            console.log('Nama = ' + data.nama)
-            console.log('Token = ' + data.token)
+          if (data[0]) {
+            // var token = 'Bearer ' + data[0].id
+            // console.log('Nama = ' + data.nama)
+            // console.log('Token = ' + data.token)
 
-            this.$store.commit('SET_USER', data.nama)
-            this.$store.commit('SET_TOKEN', token)
+            this.$store.commit('SET_USER', data[0].nama)
+            this.$store.commit('SET_TOKEN', data[0].id)
 
             if (window.localStorage) {
               console.log('Set Local Storage')
-              window.localStorage.setItem('user', Object.values(data.nama))
-              window.localStorage.setItem('token', token)
+              window.localStorage.setItem('user', data[0].nama)
+              window.localStorage.setItem('token', data[0].id)
             }
 
-            this.$router.push(data.redirect ? data.redirect : '/')
+            console.log(window.localStorage)
+            this.$router.push(data.redirect ? data.redirect : '/user')
           }
         })
         .catch(error => {
