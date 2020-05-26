@@ -4,21 +4,21 @@
 Copy/ Clone/ Download Project ini
 ```
 
-# Prerequisites
+## Prerequisites
 
 ```
 Install npm
 ```
 
-# Deployment
+## Deployment
 
-# install dependencies
+### install dependencies
 
 ```
 sudo npm install
 ```
 
-# serve with hot reload at localhost:8080
+### serve with hot reload at localhost:8080
 ```
 npm run dev
 ```
