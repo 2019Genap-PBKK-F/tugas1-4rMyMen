@@ -40,7 +40,6 @@ import DashFooter from './layout/DashFooter'
 import DashHeader from './layout/DashHeader'
 import Sidebar from './layout/Sidebar'
 import 'hideseek'
-
 export default {
   name: 'Dash',
   components: {
@@ -60,9 +59,9 @@ export default {
   computed: {
     user () {
       return {
-        displayName: faker.name.findName(),
+        displayName: window.localStorage.getItem('user'),
         avatar: faker.image.avatar(),
-        roles: [faker.name.jobTitle(), faker.name.jobTitle()]
+        roles: ['roles', 'roles2']
       }
     }
   }
@@ -81,13 +80,11 @@ export default {
   position: fixed;
   height: 100vh;
 }
-
 @media (max-width: 767px) {
   .wrapper.hide_logo .main-header .logo {
     display: none;
   }
 }
-
 .logo-mini,
 .logo-lg {
   text-align: left;
@@ -96,16 +93,13 @@ export default {
 .logo-lg img {
   padding: 0.4em !important;
 }
-
 .logo-lg img {
   display: -webkit-inline-box;
   width: 25%;
 }
-
 .user-panel {
   height: 4em;
 }
-
 hr.visible-xs-block {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.17);
